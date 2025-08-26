@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+#
+# Set up custom color-coded debug/info/warn/error messages
+#
+# Copyright © 2025 Ernst Strüngmann Institute (ESI) for Neuroscience
+# in Cooperation with Max Planck Society
+# Copyright © 2009-present, Homebrew contributors
+#
+# SPDX-License-Identifier: MIT
+#
+
+# Allow alias substitution inside scripts
+shopt -s expand_aliases
+
+# String formatters to prettify output
+if [[ -t 1 ]]; then
+  tty_escape() { printf "\033[%sm" "$1"; }
+else
+  tty_escape() { :; }
+fi
+tty_mkbold() { tty_escape "1;$1"; }
+tty_underline="$(tty_escape "4;39")"
+tty_blue="$(tty_mkbold 34)"
+tty_green="$(tty_mkbold 32)"
+tty_magenta="$(tty_mkbold 35)"
+tty_red="$(tty_mkbold 31)"
+tty_bold="$(tty_mkbold 39)"
+tty_reset="$(tty_escape 0)"
+alias datefmt='date +"%Y-%m-%d %T"'
+
+shell_join()
+{
+  local arg
+  printf "%s" "$1"
+  shift
+  for arg in "$@"
+  do
+    printf " "
+    printf "%s" "${arg// /\ }"
+  done
+}
+
+chomp()
+{
+  printf "%s" "${1/"$'\n'"/}"
+}
+
+debug()
+{
+  if [[ ! -z "${debugflag-}" ]]; then
+    printf "$(datefmt) ${tty_green}DEBUG: ${tty_reset}%s\n" "$(shell_join "$@")" | tee -a "${log}"
+  fi
+}
+
+info()
+{
+  printf "$(datefmt) ${tty_blue}===${tty_bold} %s${tty_reset}\n" "$(shell_join "$@")" | tee -a "${log}"
+}
+
+warn()
+{
+  printf "$(datefmt) ${tty_magenta}WARNING:${tty_bold} %s${tty_reset}\n" "$(chomp "$1")" | tee -a "${log}"
+}
+
+error()
+{
+  printf "$(datefmt) ${tty_red}ERROR:${tty_bold} %s${tty_reset}\n" "$(chomp "$1")" | tee -a "${log}"
+  exit 1
+}
+
+admin()
+{
+  printf "${tty_green}>>>${tty_bold} %s${tty_reset}\n" "$(shell_join "$@")"
+}

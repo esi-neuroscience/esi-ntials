@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Exemplary settings file to be loaded by read_params.sh
+#
+# Copyright © 2025 Ernst Strüngmann Institute (ESI) for Neuroscience
+# in Cooperation with Max Planck Society
+#
+# SPDX-License-Identifier: MIT
+#
+
+# Allow alias substitution inside scripts
+shopt -s expand_aliases
+
+# Define some variables
+myarray=("first" "second" "third")
+semver="11.4.3"
+calver="2025.08"
+
+# Define an alias
+alias datefmt='date +"%Y-%m-%d %T"'
+
+# Define a function
+print_input()
+{
+    echo "$(datefmt): $*"
+}
