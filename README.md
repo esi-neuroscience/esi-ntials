@@ -26,38 +26,82 @@ Todo:
 - Python logging setup + custom log-levels (ANNOUNCE)
 - Include reuse badge
 
+- RDM setup von Joscha
+- sshd config: https://docs.gitlab.com/tutorials/install_gitlab_single_node/#secure-the-server 
+
+
+
 ## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Have a very short quick-start ready for experienced (or impatient) users. Doesn't have 
+to be complete or stand-alone; if someone has already tried (an earlier version of) your
+project, they might just need a short reminder on how to get up and running. 
 
 ## Description
 
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Here's the opportunity for some self-promotion! Tell the world what your project 
+is and what it can do. Feel free to add lots of links to provide context. Also, 
+you might want to highlight:
+
+### Features
+
+We're great at 
+
+- this
+- that 
+- the other
+
+Check out more in our [documentation](https://about.readthedocs.com/)!
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+
+Now's the time to dive into detail. If relevant, provide elaborate installation 
+instructions. Depending on the scope of your project, keep in mind that the reader 
+may not be a domain expert and might appreciate an installation guide that is quite
+verbose and very detailed. 
+
+Depending on the complexity of your setup process consider creating a dedicated 
+[INSTALL.md](./INSTALL.md) document in your repository. 
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+
+If possible, show some nice and simple examples of how to use your project including 
+expected outputs. Depending on the nature of your work, it might be helpful 
+to include a GIF of a (short!) screencast of your project in action. 
+
+End with links to the full documentation of your project. 
 
 ## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+
+Provide some means of communication for users to get help. Depending on the 
+project's development style, you might want to point to your issue tracker, chat room, 
+email address/mailing list or forum. 
 
 ## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+
+Depending on the state of your project, it can be a good idea to include upcoming 
+features and a (rough) development timeline. Especially if your project is brand 
+new and still in early stages, users might be encouraged to try it out (despite 
+things being broken/unfinished) if they see that you have a plan. 
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Let users know if you accept external contributions. If you do, then be transparent 
+about your acceptance criteria. 
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+Depending on the technical complexity of your project it might again be worth 
+documenting the required development setup in a dedicated [CONTRIBUTING.md](./CONTRIBUTING.md) 
+guide in your repository. 
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+## Authors and Acknowledgment
 
-## License
-For open source projects, say how it is licensed.
+Depending on the project's development setup/status, you might want to include a 
+dedicated section to acknowledge team/community members or authors of other 
+projects. 
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Project Status
+
+Let people know if or how much you're still working on your project. If development 
+has slowed down, feel free to state here that you are looking for maintainers. 
+If you don't have any intention to continue development, it might be a good idea 
+to include a note at the top of the README. 
