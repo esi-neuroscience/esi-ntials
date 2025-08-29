@@ -18,6 +18,9 @@ The repository is organized (roughly) by tech stack:
 - [Databases](./db/README.md): Configuration and initialization of common database systems
   - [SQLite tuning](./db/sqlite_tuning.sql) use [sensible defaults](https://briandouglas.ie/sqlite-defaults/) to speed up SQLite
 
+- [Documentation](./doc/README.md): Templates for project documentation and organization
+  - [README](./doc/README.template.md) Exemplary README for a project repository
+
 
 Todo:
 
@@ -25,9 +28,9 @@ Todo:
 - pass on strings with spaces to function (array gymnastics - see vscode-remote-hpc)
 - Python logging setup + custom log-levels (ANNOUNCE)
 - Include reuse badge
-
+- CHANGELOG.md template 
+- Git message Styleguide
 - RDM setup von Joscha
-- sshd config: https://docs.gitlab.com/tutorials/install_gitlab_single_node/#secure-the-server 
 
 
 

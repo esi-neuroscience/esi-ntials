@@ -32,7 +32,7 @@ may not be a domain expert and might appreciate an installation guide that is qu
 verbose and very detailed.
 
 Depending on the complexity of your setup process consider creating a dedicated
-[INSTALL.md](./INSTALL.md) document in your repository.
+[INSTALL.template.md](./INSTALL.template.md) document in your repository.
 
 ## Usage
 
@@ -61,7 +61,7 @@ Let users know if you accept external contributions. If you do, then be transpar
 about your acceptance criteria.
 
 Depending on the technical complexity of your project it might again be worth
-documenting the required development setup in a dedicated [CONTRIBUTING.md](./CONTRIBUTING.md)
+documenting the required development setup in a dedicated [CONTRIBUTING.template.md](./CONTRIBUTING.template.md)
 guide in your repository.
 
 ## Authors and Acknowledgment
