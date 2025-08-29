@@ -11,13 +11,15 @@
 
 # Read parameters from settings file
 thisFolder=`dirname "$(readlink -f "$0")"`
-source "${thisFolder}/msg.settings"
+source "${thisFolder}/log.setup"
 
 debug "This message is not shown"
 
 info "An info message"
 
 warn "A warning message"
+
+announce "A big announcement!"
 
 # Enable debug logging
 debugflag=1

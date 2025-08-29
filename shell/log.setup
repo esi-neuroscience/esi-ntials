@@ -27,6 +27,9 @@ tty_red="$(tty_mkbold 31)"
 tty_bold="$(tty_mkbold 39)"
 tty_reset="$(tty_escape 0)"
 alias datefmt='date +"%Y-%m-%d %T"'
+if [[ -z "${log-}" ]]; then
+  log="/dev/null"
+fi
 
 shell_join()
 {
@@ -62,13 +65,14 @@ warn()
   printf "$(datefmt) ${tty_magenta}WARNING:${tty_bold} %s${tty_reset}\n" "$(chomp "$1")" | tee -a "${log}"
 }
 
+announce()
+{
+  printf "${tty_green}>>>${tty_bold}${tty_underline} %s ${tty_reset}${tty_green}<<<${tty_reset}\n" "$(shell_join "$@")"
+}
+
 error()
 {
   printf "$(datefmt) ${tty_red}ERROR:${tty_bold} %s${tty_reset}\n" "$(chomp "$1")" | tee -a "${log}"
   exit 1
 }
 
-admin()
-{
-  printf "${tty_green}>>>${tty_bold} %s${tty_reset}\n" "$(shell_join "$@")"
-}
