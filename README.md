@@ -31,8 +31,7 @@ Todo:
 - CHANGELOG.md template 
 - Git message Styleguide
 - RDM setup von Joscha
-
-
+- rsync gymnastics from cheats.pdf
 
 ## Getting started
 
