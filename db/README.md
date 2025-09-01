@@ -11,5 +11,10 @@ Things to help set up and run a database (and avoid some common pitfalls while d
 
 ## SQLite Tuning
 
-Use [this SQL script](./sqlite_tuning.sql) to speed up your SQLite database. The 
-script is based on a [blog post](https://briandouglas.ie/sqlite-defaults/) by Brian Douglas. 
+Use [this SQL script](./sqlite_tuning.sql) to speed up your SQLite database:
+
+``` shell
+sqlite3 /path/to/you/database.db < sqlite_tuning.sql
+```
+
+The script is based on a [blog post](https://briandouglas.ie/sqlite-defaults/) by Brian Douglas. 
