@@ -14,3 +14,8 @@ Unix shell. All codes have been tested with modern versions of Bash (5.x).
 
 Use a dedicated script to set up and collect variables and functions that you 
 use in all your codes, see [load_params.sh](./load_params.sh) for details. 
+
+## Use Color-Coded Debug/Info/Warn/Error Messages 
+
+Loading [log.setup](./log.setup) in your scripts, allows you to use "log-levels"
+in shell scripts. See [log_msg.sh](./log_msg.sh) for a minimal usage example. 
