@@ -5,20 +5,20 @@ in Cooperation with Max Planck Society
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-# esi-gadgets
+# esi-ntials
 
 A collection of tools, configs and code snippets that proved to be useful in various situations. 
 
 The repository is organized (roughly) by tech stack: 
 
-- [Shell](./shell/README.md): Helpers for working with the Unix shell
+- [Shell](./shell/): Helpers for working with the Unix shell
   - [use a settings file](./shell/load_params.sh) collect often used variables and functions in a dedicated file
   - [colored messages/log levels](./shell/print_msg.sh) enable color-coded debug/info/warn/error messages in shell scripts
 
-- [Databases](./db/README.md): Configuration and initialization of common database systems
+- [Databases](./db/): Configuration and initialization of common database systems
   - [SQLite tuning](./db/sqlite_tuning.sql) use [sensible defaults](https://briandouglas.ie/sqlite-defaults/) to speed up SQLite
 
-- [Documentation](./doc/README.md): Templates for project documentation and organization
+- [Documentation](./doc/): Templates for project documentation and organization
   - [README](./doc/README.template.md) Exemplary README for a project repository
 
 
@@ -33,7 +33,7 @@ Todo:
 - RDM setup von Joscha
 - rsync gymnastics from cheats.pdf
 
-## Getting started
+## Getting Started
 
 Have a very short quick-start ready for experienced (or impatient) users. Doesn't have 
 to be complete or stand-alone; if someone has already tried (an earlier version of) your

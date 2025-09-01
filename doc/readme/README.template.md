@@ -1,8 +1,15 @@
+<!--
+Copyright © 2025 Ernst Strüngmann Institute (ESI) for Neuroscience 
+in Cooperation with Max Planck Society
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 # Project Title
 
 A short description of the project and what it can do.
 
-## Getting started
+## Getting Started
 
 Have a very short quick-start ready for experienced (or impatient) users. Doesn't have
 to be complete or stand-alone; if someone has already tried (an earlier version of) your
@@ -32,7 +39,7 @@ may not be a domain expert and might appreciate an installation guide that is qu
 verbose and very detailed.
 
 Depending on the complexity of your setup process consider creating a dedicated
-[INSTALL.template.md](./INSTALL.template.md) document in your repository.
+[INSTALL.md](./INSTALL.template.md) document in your repository.
 
 ## Usage
 
@@ -61,7 +68,7 @@ Let users know if you accept external contributions. If you do, then be transpar
 about your acceptance criteria.
 
 Depending on the technical complexity of your project it might again be worth
-documenting the required development setup in a dedicated [CONTRIBUTING.template.md](./CONTRIBUTING.template.md)
+documenting the required development setup in a dedicated [CONTRIBUTING.md](./CONTRIBUTING.template.md)
 guide in your repository.
 
 ## Authors and Acknowledgment

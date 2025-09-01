@@ -11,4 +11,4 @@ dependencies:
 - pip
 - pip:
   - sphinx_automodapi
-name: esi-gadgets
+name: esi-ntials
