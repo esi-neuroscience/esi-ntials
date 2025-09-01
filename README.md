@@ -13,7 +13,7 @@ The repository is organized (roughly) by tech stack:
 
 - [Shell](./shell/): Helpers for working with the Unix shell
   - [use a settings file](./shell/load_params.sh) collect often used variables and functions in a dedicated file
-  - [colored messages/log levels](./shell/print_msg.sh) enable color-coded debug/info/warn/error messages in shell scripts
+  - [colored messages/log levels](./shell/log_msg.sh) enable color-coded debug/info/warn/error messages in shell scripts
 
 - [Databases](./db/): Configuration and initialization of common database systems
   - [SQLite tuning](./db/sqlite_tuning.sql) use [sensible defaults](https://briandouglas.ie/sqlite-defaults/) to speed up SQLite
@@ -35,75 +35,68 @@ Todo:
 
 ## Getting Started
 
-Have a very short quick-start ready for experienced (or impatient) users. Doesn't have 
-to be complete or stand-alone; if someone has already tried (an earlier version of) your
-project, they might just need a short reminder on how to get up and running. 
+Either use the above index or simply browse the repository. If you find anything 
+interesting feel free to copy-paste the respective parts (please include the 
+license note at the top of the corresponding file). 
 
 ## Description
 
-Here's the opportunity for some self-promotion! Tell the world what your project 
-is and what it can do. Feel free to add lots of links to provide context. Also, 
-you might want to highlight:
+This repository is a collection of code snippets, common configuration stubs and 
+templates that have been collected over the years by the ESI Software Support Group. 
+The objective of this project is to save time and/or reduce mental load trying 
+to answer the ever-recurring question: 
 
-### Features
+**"I need to do x here. I remember I have done something very similar last week/month/year already. Where was that again..?"**
 
-We're great at 
-
-- this
-- that 
-- the other
-
-Check out more in our [documentation](https://about.readthedocs.com/)!
+Thus, everything in this repository is general enough that it has been used at least 
+twice in the past, but still specific enough that cooking it up from scratch is 
+not effortless. 
 
 ## Installation
 
-Now's the time to dive into detail. If relevant, provide elaborate installation 
-instructions. Depending on the scope of your project, keep in mind that the reader 
-may not be a domain expert and might appreciate an installation guide that is quite
-verbose and very detailed. 
+The polytopical nature of this repository doesn't really lend itself to provide 
+general purpose installation instructions. If you need to [tune your SQLite database](./db/sqlite_tuning.sql), 
+you probably already have SQLite set up and running on your system. If you're 
+looking for a way to [better structure status messages in Bash](./shell/log_msg.sh), 
+you're probably already working in Bash. Thus, no single "installation" is 
+required to use the things collected in here, however, almost all bits and pieces
+require some kind of base technology (e.g., SQLite, Bash) to be available on your 
+system. Please refer to the respective official documentation to set up the corresponding 
+components. 
 
-Depending on the complexity of your setup process consider creating a dedicated 
-[INSTALL.md](./INSTALL.md) document in your repository. 
+The notable exception to this rule is the provided [Python](./python/) section, 
+which comes with a conda environment file to quickly set up all required packages 
+(including other tools like `sqlite` used in the repository). 
 
 ## Usage
 
-If possible, show some nice and simple examples of how to use your project including 
-expected outputs. Depending on the nature of your work, it might be helpful 
-to include a GIF of a (short!) screencast of your project in action. 
-
-End with links to the full documentation of your project. 
+Find what you need by browsing the repository or skimming the index at the top. 
+Then simply copy-paste the parts that seem useful to you (please include the 
+license note at the top of the corresponding file). 
 
 ## Support
 
-Provide some means of communication for users to get help. Depending on the 
-project's development style, you might want to point to your issue tracker, chat room, 
-email address/mailing list or forum. 
+If you have questions or find bugs/inconsistencies, please 
+[open an issue](https://github.com/esi-neuroscience/esi-ntials/issues/new). 
 
 ## Roadmap
 
-Depending on the state of your project, it can be a good idea to include upcoming 
-features and a (rough) development timeline. Especially if your project is brand 
-new and still in early stages, users might be encouraged to try it out (despite 
-things being broken/unfinished) if they see that you have a plan. 
+Due to the nature of this project, we are not using releases or milestones. 
+However, we plan to extend this repository everytime we find ourselves asking the 
+above mentioned *"Where was that again?..."* question. 
 
 ## Contributing
 
-Let users know if you accept external contributions. If you do, then be transparent 
-about your acceptance criteria. 
-
-Depending on the technical complexity of your project it might again be worth 
-documenting the required development setup in a dedicated [CONTRIBUTING.md](./CONTRIBUTING.md) 
-guide in your repository. 
+Contributions are always welcome! Feel free to 
+[open an issue](https://github.com/esi-neuroscience/esi-ntials/issues/new) 
+to propose changes/additions. Alternatively, you can also 
+[fork this repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo), 
+and open a [pull request](https://github.com/esi-neuroscience/esi-ntials/pulls). 
 
 ## Authors and Acknowledgment
 
-Depending on the project's development setup/status, you might want to include a 
-dedicated section to acknowledge team/community members or authors of other 
-projects. 
+Initial version put together by [Stefan Fürtinger](https://github.com/pantaray). 
 
 ## Project Status
 
-Let people know if or how much you're still working on your project. If development 
-has slowed down, feel free to state here that you are looking for maintainers. 
-If you don't have any intention to continue development, it might be a good idea 
-to include a note at the top of the README. 
+This project is actively maintained and on occasion updated.
