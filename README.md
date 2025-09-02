@@ -14,6 +14,7 @@ The repository is organized (roughly) by tech stack:
 - [Shell](./shell/): Helpers for working with the Unix shell
   - [use a settings file](./shell/load_params.sh) collect often used variables and functions in a dedicated file
   - [colored messages/log levels](./shell/log_msg.sh) enable color-coded debug/info/warn/error messages in shell scripts
+  - [user queries](./shell/queries_run.sh) use interactive prompts in scripts
 
 - [Databases](./db/): Configuration and initialization of common database systems
   - [SQLite tuning](./db/sqlite_tuning.sql) use [sensible defaults](https://briandouglas.ie/sqlite-defaults/) to speed up SQLite
@@ -24,7 +25,6 @@ The repository is organized (roughly) by tech stack:
 
 Todo:
 
-- client_backup: user_input + user_yesno
 - pass on strings with spaces to function (array gymnastics - see vscode-remote-hpc)
 - Python logging setup + custom log-levels (ANNOUNCE)
 - Include reuse badge
@@ -32,6 +32,7 @@ Todo:
 - Git message Styleguide
 - RDM setup von Joscha
 - rsync gymnastics from cheats.pdf
+- how to set up ssh config files (PS script + bash/zsh)
 
 ## Getting Started
 

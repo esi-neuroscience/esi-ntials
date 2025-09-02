@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#
+# Set up helper functions for (non-)blocking user interactions
+#
+# Copyright © 2025 Ernst Strüngmann Institute (ESI) for Neuroscience
+# in Cooperation with Max Planck Society
+# Copyright © 2009-present, Homebrew contributors
+#
+# SPDX-License-Identifier: MIT
+#
+
+# Blocking wait for user input (negative answer exits)
+user_input() {
+  local ans save_state
+  echo
+  echo "Press RETURN/ENTER to continue or any other key to abort:"
+  save_state="$(/bin/stty -g)"
+  /bin/stty raw -echo
+  IFS='' read -r -n 1 -d '' "ans"
+  /bin/stty "${save_state}"
+  # we test for \r and \n because some stuff does \r instead
+  if ! [[ "${ans}" == $'\r' || "${ans}" == $'\n' ]]
+  then
+    exit 1
+  fi
+}
+
+# Blocking wait for user yes/no (negative answer does not exit script):
+# YES = 1, NO = 0
+user_yesno() {
+  local yn
+  while true; do
+      read -p "$* [y/n]: " yn
+      case "${yn}" in
+          [Yy]*) return 1 ;;
+          [Nn]*) return 0 ;;
+      esac
+  done
+}
