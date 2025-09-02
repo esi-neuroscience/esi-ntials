@@ -21,7 +21,7 @@ The repository is organized (roughly) by tech stack:
   - [SQLite tuning](./db/sqlite_tuning.sql) use [sensible defaults](https://briandouglas.ie/sqlite-defaults/) to speed up SQLite
 
 - [Documentation](./doc/): Templates for project documentation and organization
-  - [README](./doc/README.template.md) Exemplary README for a project repository
+  - [README](./doc/readme/README.md) Exemplary README for a project repository
 
 
 Todo:
