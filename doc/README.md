@@ -57,3 +57,10 @@ To use the CHANGELOG template in your own project, simply copy it to your projec
 ``` shell
 cp CHANGELOG.md /path/to/your/repo/
 ```
+
+## Git Commit Message Style
+
+Over the years the ESI IT Software Support Group has converged on a quick and 
+simple yet functional format for writing git commit messages. The included 
+[Style Guide](./git_style.md) is a verbatim copy of the corresponding section in 
+our internal documentation. 

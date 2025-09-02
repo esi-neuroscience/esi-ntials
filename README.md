@@ -23,12 +23,12 @@ The repository is organized (roughly) by tech stack:
 - [Documentation](./doc/): Templates for project documentation and organization
   - [README](./doc/readme/README.md) Exemplary README for a project repository
   - [CHANGELOG](./doc/CHANGELOG.md) Exemplary CHANGELOG for a project repository
+  - [Git Style Guide](./doc/git_style.md) A suggestion for formatting git commits
 
 Todo:
 
 - Python logging setup + custom log-levels (ANNOUNCE)
 - Include reuse badge
-- Git message Styleguide
 - RDM setup von Joscha
 - rsync gymnastics from cheats.pdf
 - how to set up ssh config files (PS script + bash/zsh)
@@ -42,7 +42,7 @@ license note at the top of the corresponding file).
 ## Description
 
 This repository is a collection of code snippets, common configuration stubs and 
-templates that have been collected over the years by the ESI Software Support Group. 
+templates that have been collected over the years by the ESI IT Software Support Group. 
 The objective of this project is to save time and/or reduce mental load trying 
 to answer the ever-recurring question: 
 
