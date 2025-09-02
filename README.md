@@ -47,7 +47,7 @@ templates that have been collected over the years by the ESI Software Support Gr
 The objective of this project is to save time and/or reduce mental load trying 
 to answer the ever-recurring question: 
 
-**"I need to do x here. I remember I have done something very similar last week/month/year already. Where was that again..?"**
+**"I need to do x here. I remember I have done something similar before, but where was that again..?"**
 
 Thus, everything in this repository is general enough that it has been used at least 
 twice in the past, but still specific enough that cooking it up from scratch is 
