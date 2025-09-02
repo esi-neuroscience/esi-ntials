@@ -22,13 +22,12 @@ The repository is organized (roughly) by tech stack:
 
 - [Documentation](./doc/): Templates for project documentation and organization
   - [README](./doc/readme/README.md) Exemplary README for a project repository
-
+  - [CHANGELOG](./doc/CHANGELOG.md) Exemplary CHANGELOG for a project repository
 
 Todo:
 
 - Python logging setup + custom log-levels (ANNOUNCE)
 - Include reuse badge
-- CHANGELOG.md template 
 - Git message Styleguide
 - RDM setup von Joscha
 - rsync gymnastics from cheats.pdf

@@ -18,11 +18,42 @@ popular code sharing platforms (GitHub, GitLab, Codeberg etc.). The file
 README that contains a reference structure and also links to separate installation 
 and contributing guides. 
 
-To use it in your own project, simply copy and rename the file(s):
+To use it in your own project, simply copy the corresponding file(s) to your 
+project root:
 
 ``` shell
-cp readme/README.md /path/to/your/repo/README.md
-cp readme/CONTRIBUTING.md /path/to/your/repo/CONTRIBUTING.md
-cp readme/INSTALL.md /path/to/your/repo/INSTALL.md
+cp readme/README.md /path/to/your/repo/
+cp readme/CONTRIBUTING.md /path/to/your/repo/
+cp readme/INSTALL.md /path/to/your/repo/
 ```
 
+## Exemplary CHANGELOG
+
+Once a project hits a certain size and/or age, it becomes tedious to track changes 
+browsing its (potentially very long) git log. Instead, it can be quite beneficial 
+to explicitly track all notable changes in a dedicated file, usually called 
+`CHANGELOG.md`. The included template [CHANGELOG.md](./CHANGELOG.md) is based on 
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and illustrates an 
+exemplary layout: 
+
+- each release is summarized in a dedicated section with sub-sections following 
+  the blueprint:
+  
+  ```
+  ### NEW
+  ### CHANGED
+  ### REMOVED
+  ### DEPRECATED
+  ### FIXED
+  ```
+  
+  Every notable change is included under one of these five sub-sections. 
+  
+- notable changes introduced in a not yet released staging version of the project
+  are similarly noted in an `## [Unreleased]` section
+
+To use the CHANGELOG template in your own project, simply copy it to your project root:
+
+``` shell
+cp CHANGELOG.md /path/to/your/repo/
+```
