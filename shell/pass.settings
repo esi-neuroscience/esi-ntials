@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# Exemplary functions processing arbitrary strings/arrays
+#
+# Copyright © 2025 Ernst Strüngmann Institute (ESI) for Neuroscience
+# in Cooperation with Max Planck Society
+#
+# SPDX-License-Identifier: MIT
+#
+
+# Define a function that accepts arbitrary inputs
+process_all()
+{
+    echo "This is what I got: $*"
+}
+
+# Define a function that converts its input to an array
+process_arrays()
+{
+    local arr=("$@")
+    echo "The length of the array is ${#arr[@]}"
+    echo "This is its first element: ${arr[0]}"
+    echo "This is its last element: ${arr[-1]}"
+    echo "This is the whole thing: ${arr[@]}"
+}

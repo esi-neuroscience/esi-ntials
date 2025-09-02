@@ -15,6 +15,7 @@ The repository is organized (roughly) by tech stack:
   - [use a settings file](./shell/load_params.sh) collect often used variables and functions in a dedicated file
   - [colored messages/log levels](./shell/log_msg.sh) enable color-coded debug/info/warn/error messages in shell scripts
   - [user queries](./shell/queries_run.sh) use interactive prompts in scripts
+  - [string handling](./shell/pass_vars.sh) use arrays to safely process and parse strings
 
 - [Databases](./db/): Configuration and initialization of common database systems
   - [SQLite tuning](./db/sqlite_tuning.sql) use [sensible defaults](https://briandouglas.ie/sqlite-defaults/) to speed up SQLite
@@ -25,7 +26,6 @@ The repository is organized (roughly) by tech stack:
 
 Todo:
 
-- pass on strings with spaces to function (array gymnastics - see vscode-remote-hpc)
 - Python logging setup + custom log-levels (ANNOUNCE)
 - Include reuse badge
 - CHANGELOG.md template 

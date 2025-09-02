@@ -27,3 +27,17 @@ The [queries.setup](./queries.setup) script contains function prototypes for
 blocking and non-blocking user-queries (a simple yes/no question as well as a 
 "press return to continue" prompt). The usage (and evaluation of return values)
 is illustrated in [queries_run.sh](./queries_run.sh). 
+
+## Interactive User Queries
+
+The [queries.setup](./queries.setup) script contains function prototypes for 
+blocking and non-blocking user-queries (a simple yes/no question as well as a 
+"press return to continue" prompt). The usage (and evaluation of return values)
+is illustrated in [queries_run.sh](./queries_run.sh). 
+
+## Handling Strings and Arrays in Bash/Zsh
+
+The script [pass_vars.sh](./pass_vars.sh) uses functions defined in 
+[pass.settings](./pass.settings) to illustrate how to (safely) pass arbitrary 
+strings to functions and how to make use of arrays for string handling. 
+
