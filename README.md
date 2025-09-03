@@ -24,6 +24,7 @@ The repository is organized (roughly) by tech stack:
   - [README](./doc/readme/README.md) Exemplary README for a project repository
   - [CHANGELOG](./doc/CHANGELOG.md) Exemplary CHANGELOG for a project repository
   - [Git Style Guide](./doc/git_style.md) A suggestion for formatting git commits
+  - [Research Project Folder Layout](./doc/git_style.md) Exemplary directory structure for a research project
 
 Todo:
 

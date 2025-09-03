@@ -64,3 +64,9 @@ Over the years the ESI IT Software Support Group has converged on a quick and
 simple yet functional format for writing git commit messages. The included 
 [Style Guide](./git_style.md) is a verbatim copy of the corresponding section in 
 our internal documentation. 
+
+## Standardized Research Project Directory Layout
+
+A basic but central component of Research Data Management is the organization of 
+data on disk. The layout illustrated in [dir_layout.md](./dir_layout.md) 
+demonstrates a simple directory structure to get started. 
