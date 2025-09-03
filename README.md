@@ -24,13 +24,12 @@ The repository is organized (roughly) by tech stack:
   - [README](./doc/readme/README.md) Exemplary README for a project repository
   - [CHANGELOG](./doc/CHANGELOG.md) Exemplary CHANGELOG for a project repository
   - [Git Style Guide](./doc/git_style.md) A suggestion for formatting git commits
-  - [Research Project Folder Layout](./doc/git_style.md) Exemplary directory structure for a research project
+  - [Research Project Folder Layout](./doc/dir_layout.md) Exemplary directory structure for a research project
 
 Todo:
 
 - Python logging setup + custom log-levels (ANNOUNCE)
 - Include reuse badge
-- RDM setup von Joscha
 - rsync gymnastics from cheats.pdf
 - how to set up ssh config files (PS script + bash/zsh)
 
