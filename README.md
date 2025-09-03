@@ -16,6 +16,7 @@ The repository is organized (roughly) by tech stack:
   - [colored messages/log levels](./shell/log_msg.sh) enable color-coded debug/info/warn/error messages in shell scripts
   - [user queries](./shell/queries_run.sh) use interactive prompts in scripts
   - [string handling](./shell/pass_vars.sh) use arrays to safely process and parse strings
+  - [how to rsync](./shell/rsync_use.sh) short examples of common rsync invocations
 
 - [Databases](./db/): Configuration and initialization of common database systems
   - [SQLite tuning](./db/sqlite_tuning.sql) use [sensible defaults](https://briandouglas.ie/sqlite-defaults/) to speed up SQLite
