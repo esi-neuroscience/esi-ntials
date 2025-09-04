@@ -12,6 +12,12 @@
 thisFolder=`dirname "$(readlink -f "$0")"`
 source "${thisFolder}/pass.settings"
 
+# Name of text file used later
+txtfile="dummy.txt"
+
+# Cleaning up remains of potential previous runs
+rm -f "${txtfile}"
+
 # First, define a variable containing an (almost) arbitrarily convoluted string
 mymsg="This is a very long string with     spaces and !@#$%^&*() symbols"
 
@@ -40,5 +46,26 @@ process_arrays "${myarray[1]}"
 
 # Now pass only second to last elements to the function
 process_arrays "${myarray[@]:1}"
+
+# Create a temporary text file
+echo "Creating temporary text file ${txtfile}"
+touch "${txtfile}"
+echo "Writing ten lines to it"
+for i in $(seq 1 10); do
+    echo "Number ${i}" >> "${txtfile}"
+done
+
+# Read lines from the file to a bash array
+echo "Store each line as element of an array"
+readarray -t newarray < "${txtfile}"
+
+# Use external function to evaluate the array
+process_arrays "${newarray[@]}"
+
+# Loop over array manually
+echo "Looping over the array: "
+for word in "${newarray[@]}"; do
+    echo ">>> ${word}"
+done
 
 exit 0
