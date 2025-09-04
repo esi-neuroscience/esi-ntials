@@ -8,6 +8,11 @@
 .idea
 *.log
 tmp/
+**/dir1
+**/dir2
+**/dir3
+*dummy*
+filelist.txt
 
 *.py[cod]
 *.egg
