@@ -10,6 +10,8 @@
 #
 
 # Cleaning up remains of potential previous runs
+echo "_________________________________________________________________________"
+echo "Cleaning up potential leftovers from previous runs"
 rm filelist.txt
 rm -rf dir1/
 rm -rf dir2/
@@ -34,6 +36,7 @@ for i in $(seq 1 2 20); do
     echo "$(realpath $(dirname $0))/dir1/sourcedir/file${i}.txt" >> filelist.txt
 done
 
+echo "_________________________________________________________________________"
 echo "Running EXAMPLE 1..."
 # ===========================================================================
 # EXAMPLE 1:
@@ -46,16 +49,39 @@ rsync -avhp --progress dir1/sourcedir dir2/
 # ===========================================================================
 
 # Check that rsync did what we wanted it to do
+echo ""
 echo "Checking for differences between dir1/sourcedir dir2/sourcedir (should be none)"
 diff dir1/sourcedir dir2/sourcedir
+if [ $? -ne 0 ]; then
+    echo "ERROR: Sync did not work. Exiting..."
+    exit 1
+else
+    echo "SUCCESS!"
+fi
 
+echo "_________________________________________________________________________"
 echo "Running EXAMPLE 2..."
 # ===========================================================================
 # EXAMPLE 2:
 #              Copy entries listed in a text file to given target
 #
-rsync -avhp --progress "$(cat filelist.txt)" dir3/
+rsync -avhp --progress `cat filelist.txt` dir3/
 # ===========================================================================
 
+# Check that only the files listed in filelist.txt were copied
+echo ""
+echo "Checking for copied files in target directory"
+readarray -t filearr < filelist.txt
+for fullname in "${filearr[@]}"; do
+    filename="$(basename ${fullname})"
+    if [ ! -f "dir3/${filename}" ]; then
+        echo "ERROR: ${filename} is missing!"
+        exit 1
+    else
+        echo "File ${filename} has been synced"
+    fi
+done
+echo "SUCCESS!"
+echo ""
 
-
+exit 0
