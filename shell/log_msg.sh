@@ -31,4 +31,9 @@ log="./tmp.log"
 
 info "This messages is printed and logged to ${log}"
 
+# Show log
+echo "Regular 'echo' here! Showing contents of log file: ______"
+cat "${log}"
+echo "___And continue...."
+
 error "Crash with an error"
