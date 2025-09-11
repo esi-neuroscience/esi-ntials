@@ -10,7 +10,7 @@
 
 # Load externally defined functions
 thisFolder=`dirname "$(readlink -f "$0")"`
-source "${thisFolder}/pass.settings"
+source "${thisFolder}/pass.setup"
 
 # Name of text file used later
 txtfile="dummy.txt"

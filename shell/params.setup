@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Exemplary settings file to be loaded by read_params.sh
+# Exemplary setup file to be loaded by read_params.sh
 #
 # Copyright © 2025 Ernst Strüngmann Institute (ESI) for Neuroscience
 # in Cooperation with Max Planck Society

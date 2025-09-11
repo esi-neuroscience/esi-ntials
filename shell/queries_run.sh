@@ -9,7 +9,7 @@
 # SPDX-License-Identifier: MIT
 #
 
-# Read parameters from settings file
+# Read parameters from setup file
 thisFolder=`dirname "$(readlink -f "$0")"`
 source "${thisFolder}/queries.setup"
 

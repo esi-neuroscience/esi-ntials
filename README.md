@@ -12,7 +12,7 @@ A collection of tools, configs and code snippets that proved to be useful in var
 The repository is organized (roughly) by tech stack: 
 
 - [Shell](./shell/): Helpers for working with the Unix shell
-  - [use a settings file](./shell/load_params.sh) collect often used variables and functions in a dedicated file
+  - [use a setup file](./shell/load_params.sh) collect often used variables and functions in a dedicated file
   - [colored messages/log levels](./shell/log_msg.sh) enable color-coded debug/info/warn/error messages in shell scripts
   - [user queries](./shell/queries_run.sh) use interactive prompts in scripts
   - [string handling](./shell/pass_vars.sh) use arrays to safely process and parse strings

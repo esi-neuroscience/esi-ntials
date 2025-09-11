@@ -38,6 +38,6 @@ is illustrated in [queries_run.sh](./queries_run.sh).
 ## Handling Strings and Arrays in Bash/Zsh
 
 The script [pass_vars.sh](./pass_vars.sh) uses functions defined in 
-[pass.settings](./pass.settings) to illustrate how to (safely) pass arbitrary 
+[pass.setup](./pass.setup) to illustrate how to (safely) pass arbitrary 
 strings to functions and how to make use of arrays for string handling. 
 
