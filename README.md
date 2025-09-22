@@ -18,6 +18,9 @@ The repository is organized (roughly) by tech stack:
   - [string handling](./shell/pass_vars.sh) use arrays to safely process and parse strings
   - [how to rsync](./shell/rsync_use.sh) short examples of common rsync invocations
 
+- [Python](./python/): Code snippets and examples to get the most out of Python
+  - [colored logging](./python/log_msg.py) use custom color-coded logging in your Python scripts
+
 - [Databases](./db/): Configuration and initialization of common database systems
   - [SQLite tuning](./db/sqlite_tuning.sql) use [sensible defaults](https://briandouglas.ie/sqlite-defaults/) to speed up SQLite
 
@@ -29,10 +32,9 @@ The repository is organized (roughly) by tech stack:
 
 Todo:
 
-- Python logging setup + custom log-levels (ANNOUNCE)
 - Include reuse badge
-- rsync gymnastics from cheats.pdf
 - how to set up ssh config files (PS script + bash/zsh)
+- write tests
 
 ## Getting Started
 

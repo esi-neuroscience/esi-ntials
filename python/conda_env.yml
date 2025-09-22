@@ -7,6 +7,7 @@ channels:
 - conda-forge
 dependencies:
 - python <3.14,>=3.8
+- ipython
 - reuse
 - sqlite
 - pip
