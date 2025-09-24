@@ -9,9 +9,6 @@
 # SPDX-License-Identifier: MIT
 #
 
-# Allow alias substitution inside scripts
-shopt -s expand_aliases
-
 # String formatters to prettify output
 if [[ -t 1 ]]; then
   tty_escape() { printf "\033[%sm" "$1"; }
@@ -19,17 +16,12 @@ else
   tty_escape() { :; }
 fi
 tty_mkbold() { tty_escape "1;$1"; }
-tty_underline="$(tty_escape "4;39")"
 tty_blue="$(tty_mkbold 34)"
 tty_green="$(tty_mkbold 32)"
 tty_magenta="$(tty_mkbold 35)"
 tty_red="$(tty_mkbold 31)"
 tty_bold="$(tty_mkbold 39)"
 tty_reset="$(tty_escape 0)"
-alias datefmt='date +"%Y-%m-%d %T"'
-if [[ -z "${log-}" ]]; then
-  log="/dev/null"
-fi
 
 # Print string perserving special characters formatting (like newlines)
 shell_join()
@@ -50,31 +42,30 @@ chomp()
   printf "%s" "${1/"$'\n'"/}"
 }
 
+# Special print functions specifically for tests
 debug()
 {
-  if [[ -n "${debugflag-}" ]]; then
-    printf "$(datefmt) ${tty_green}DEBUG: ${tty_reset}%s\n" "$(shell_join "$@")" | tee -a "${log}"
+  if [[ -n "${testsdebug-}" ]]; then
+    printf "${tty_blue}DEBUG: ${tty_reset}%s\n" "$(shell_join "$@")"
   fi
+}
+
+passed()
+{
+  printf "${tty_green}PASSED: ${tty_reset}%s\n" "$(shell_join "$@")"
 }
 
 info()
 {
-  printf "$(datefmt) ${tty_blue}===${tty_bold} %s${tty_reset}\n" "$(shell_join "$@")" | tee -a "${log}"
+  printf "${tty_blue}===${tty_bold} %s${tty_reset}\n" "$(shell_join "$@")"
 }
 
 warn()
 {
-  printf "$(datefmt) ${tty_magenta}WARNING:${tty_bold} %s${tty_reset}\n" "$(chomp "$1")" | tee -a "${log}"
-}
-
-announce()
-{
-  printf "${tty_green}>>>${tty_bold}${tty_underline} %s ${tty_reset}${tty_green}<<<${tty_reset}\n" "$(shell_join "$@")"
+  printf "${tty_magenta}WARNING:${tty_bold} %s${tty_reset}\n" "$(chomp "$1")"
 }
 
 error()
 {
-  printf "$(datefmt) ${tty_red}ERROR:${tty_bold} %s${tty_reset}\n" "$(chomp "$1")" | tee -a "${log}"
-  exit 1
+  printf "${tty_red}FAILED:${tty_bold} %s${tty_reset}\n" "$(chomp "$1")"
 }
-
