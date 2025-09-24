@@ -18,6 +18,9 @@ The repository is organized (roughly) by tech stack:
   - [string handling](./shell/pass_vars.sh) use arrays to safely process and parse strings
   - [how to rsync](./shell/rsync/rsync_examples.sh) short examples of common rsync invocations
 
+- [Configuration](./config/): Convenience settings for common system services
+  - [ssh config](./config/ssh_config) use custom shortcuts to set up ssh connections
+
 - [Python](./python/): Code snippets and examples to get the most out of Python
   - [colored logging](./python/log_msg.py) use custom color-coded logging in your Python scripts
 
@@ -33,7 +36,6 @@ The repository is organized (roughly) by tech stack:
 Todo:
 
 - Include reuse badge
-- how to set up ssh config files (PS script + bash/zsh)
 - write tests
 
 ## Getting Started

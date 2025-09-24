@@ -1,0 +1,32 @@
+#
+# Copyright © 2025 Ernst Strüngmann Institute (ESI) for Neuroscience
+# in Cooperation with Max Planck Society
+#
+# SPDX-License-Identifier: CC-BY-SA-4.0
+#
+
+# Example 1: connect to local workstation as user `remoteuser` with key `id_workstation`
+Host myworkstation
+  HostName 192.168.123.99
+  User remoteuser
+  IdentityFile ~/.ssh/id_workstation
+  IdentitiesOnly yes
+
+# Example 2: use wildcard completion in hostname - the code-block below expands
+# all hosts of the form cN, e.g., typing `ssh c3` expands internally to `ssh esi-svhpc3`
+Host c*
+  HostName esi-svhp%h
+  User remoteuser
+  IdentityFile ~/.ssh/id_ed25519
+  IdentitiesOnly yes
+
+# Example 3: use a dedicated key for GitHub (or GitLab) repositories
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_github
+  IdentitiesOnly yes
+
+# If `ssh-agent` is available and running, add all private keys to it, so that
+# all keys protected with passphrases get unlocked upon login via macOS Keychain,
+# Windows Credential Manager or Linux Keyring
+AddKeysToAgent yes
