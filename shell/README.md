@@ -28,16 +28,15 @@ blocking and non-blocking user-queries (a simple yes/no question as well as a
 "press return to continue" prompt). The usage (and evaluation of return values)
 is illustrated in [queries_run.sh](./queries_run.sh). 
 
-## Interactive User Queries
-
-The [queries.setup](./queries.setup) script contains function prototypes for 
-blocking and non-blocking user-queries (a simple yes/no question as well as a 
-"press return to continue" prompt). The usage (and evaluation of return values)
-is illustrated in [queries_run.sh](./queries_run.sh). 
-
 ## Handling Strings and Arrays in Bash/Zsh
 
 The script [pass_vars.sh](./pass_vars.sh) uses functions defined in 
 [pass.setup](./pass.setup) to illustrate how to (safely) pass arbitrary 
 strings to functions and how to make use of arrays for string handling. 
+
+## Perform File Operations With `rsync`
+
+The script [rsync_examples.sh](./rsync/rsync_examples.sh) illustrates some common 
+`rsync` use cases by means of some impromptu local file-copy operations. Just run 
+the script and see what happens!
 

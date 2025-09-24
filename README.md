@@ -16,7 +16,7 @@ The repository is organized (roughly) by tech stack:
   - [colored messages/log levels](./shell/log_msg.sh) enable color-coded debug/info/warn/error messages in shell scripts
   - [user queries](./shell/queries_run.sh) use interactive prompts in scripts
   - [string handling](./shell/pass_vars.sh) use arrays to safely process and parse strings
-  - [how to rsync](./shell/rsync_use.sh) short examples of common rsync invocations
+  - [how to rsync](./shell/rsync/rsync_examples.sh) short examples of common rsync invocations
 
 - [Python](./python/): Code snippets and examples to get the most out of Python
   - [colored logging](./python/log_msg.py) use custom color-coded logging in your Python scripts

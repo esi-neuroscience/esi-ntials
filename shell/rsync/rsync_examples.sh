@@ -9,6 +9,18 @@
 # SPDX-License-Identifier: MIT
 #
 
+# Abort on errors
+set -e
+
+# Ensure script is run inside shell/rsync directory
+thisFolder=`dirname "$(readlink -f "$0")"`
+echo "thisfolder=$thisFolder"
+pushd "${thisFolder}"
+if [[ "$(pwd)" != "${thisFolder}" ]]; then
+    echo "Could not change to working directory ${thisFolder}. Exiting..."
+    exit 1
+fi
+
 # Cleaning up remains of potential previous runs
 echo "_________________________________________________________________________"
 echo "Cleaning up potential leftovers from previous runs"
@@ -33,7 +45,7 @@ done
 echo "Creating file-list to be copied"
 touch filelist.txt
 for i in $(seq 1 2 20); do
-    echo "$(realpath $(dirname $0))/dir1/sourcedir/file${i}.txt" >> filelist.txt
+    echo "${thisFolder}/dir1/sourcedir/file${i}.txt" >> filelist.txt
 done
 
 echo "_________________________________________________________________________"
@@ -83,5 +95,26 @@ for fullname in "${filearr[@]}"; do
 done
 echo "SUCCESS!"
 echo ""
+
+echo "_________________________________________________________________________"
+echo "Running EXAMPLE 3..."
+# ===========================================================================
+# EXAMPLE 3:
+#              Show how to modify Example 1 for remote source/target
+#
+echo ""
+echo "To copy from remote to local, use:"
+echo ""
+echo "rsync -avhp --progress user@remote:/full/path/to/dir1/sourcedir dir2/"
+echo ""
+echo "To copy from local to remote:"
+echo ""
+echo "rsync -avhp --progress dir1/sourcedir user@remote:/full/path/to/dir2/"
+echo ""
+echo "ALL DONE!"
+echo ""
+
+# Back to previous working directory
+popd
 
 exit 0
