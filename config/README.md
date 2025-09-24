@@ -33,7 +33,7 @@ set up and deploy the specified ssh key.
 Sticking with the initial example in [ssh_config](./ssh_config) we start with 
 creating a key-pair `id_workstation` using `ssh-keygen`:
 
-- **Windows**
+- **Windows (PowerShell)**
   ```powershell
   md -Force .ssh
   ssh-keygen -t ed25519 -f C:\Users\<username>\.ssh\id_workstation
@@ -61,7 +61,7 @@ like).
 Next, you need to tell the remote host (192.168.123.99 in this example) about your 
 new key. This can be done using the `ssh-copy-id` command:
 
-- **Windows**
+- **Windows (PowerShell)**
   ```powershell
   ssh-copy-id -i C:\Users\<username>\.ssh\id_workstation remoteuser@192.168.123.99
   ```
