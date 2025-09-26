@@ -23,6 +23,6 @@ print_input "We begin here"
 print_input "${myarray[@]}"
 
 # Invoke externally defined function
-print_input "And and there"
+print_input "And end there"
 
 exit 0

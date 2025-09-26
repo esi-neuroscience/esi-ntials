@@ -114,7 +114,7 @@ for option in "${optArray[@]}"; do
     elif [[ "${option}" == "python" ]]; then
         pytest "${testargs[@]}" test_python.py
     elif [[ "${option}" == "shell" ]]; then
-        ./test_shell.sh
+        "${thisFolder}/test_shell.sh"
     fi
 done
 
