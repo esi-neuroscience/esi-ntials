@@ -16,7 +16,7 @@ env:
   GHCI: 1
 jobs:
   run-examples:
-    name: Install (${{ matrix.python-version }}, ${{ matrix.os }})
+    name: Test Examples on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
