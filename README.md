@@ -7,6 +7,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # esi-ntials
 
+[![tests](https://github.com/esi-neuroscience/esi-ntials/actions/workflows/run_tests.yml/badge.svg?branch=main)](https://github.com/esi-neuroscience/esi-ntials/actions/workflows/run_tests.yml)
+
 A collection of tools, configs and code snippets that proved to be useful in various situations. 
 
 The repository is organized (roughly) by tech stack: 
