@@ -31,28 +31,24 @@ if [ $? -ne 0 ]; then
     warn "Expected initial header write not found"
     fail=1
 fi
-debug "Done"
 debug "Testing correct write of first line"
 grep -qw "${datename}.*We begin here" "${tmpout}"
 if [ $? -ne 0 ]; then
     warn "Expected first 'print_input' write not found"
     fail=1
 fi
-debug "Done"
 debug "Testing correct write of second line"
 grep -qw "${datename}.*first second third" "${tmpout}"
 if [ $? -ne 0 ]; then
     warn "Expected second 'print_input' write not found"
     fail=1
 fi
-debug "Done"
 debug "Testing correct write of third line"
 grep -qw "${datename}.*And end there" "${tmpout}"
 if [ $? -ne 0 ]; then
     warn "Expected third 'print_input' write not found"
     fail=1
 fi
-debug "Done"
 
 # If any line has not been printed, the test failed
 if [[ -n "${fail-}" ]]; then
@@ -69,7 +65,7 @@ rm -f "${log}"
 
 "${shellFolder}/log_msg.sh" > "${tmpout}"
 
-debug "Ensure that the initial debug message was not printed"
+debug "Ensure that initial debug message was not printed"
 grep -qw "This message is not shown" "${tmpout}"
 if [ $? -eq 0 ]; then
     warn "Debug message not hidden"
@@ -121,6 +117,7 @@ fi
 passed "Executed logging example successfully"
 
 # Cleanup
+debug "Cleaning up log file created by log_msg.sh"
 rm -f "${log}"
 
 # ----------------------------------------------------------------------
@@ -128,7 +125,6 @@ info "Testing queries_run.sh...."
 debug "Seinding 'y' and 'RETURN' key to script"
 (echo "y"
  echo -ne "\n") | "${shellFolder}/queries_run.sh" > "${tmpout}" 2>&1
-debug "Done"
 
 grep -qw "We're now asking a simple yes/no question..." "${tmpout}"
 if [ $? -ne 0 ]; then
@@ -187,7 +183,59 @@ fi
 passed "Executed array processing script successfully"
 
 # Cleanup
+debug "Cleaning up tmp file created by pass_vars.sh"
 rm -f "${dummyfile}"
+
+# ----------------------------------------------------------------------
+info "Testing rsync_examples.sh...."
+rsyncFolder="${shellFolder}/rsync"
+
+"${rsyncFolder}/rsync_examples.sh" > /dev/null
+
+debug "Ensure all expected files/directories have been created"
+if [ ! -d "${rsyncFolder}/dir1" ]; then
+    warn "Exemplary directory dir1 has not been created"
+    fail=1
+fi
+if [ ! -d "${rsyncFolder}/dir2" ]; then
+    warn "Exemplary directory dir2 has not been created"
+    fail=1
+fi
+if [ ! -d "${rsyncFolder}/dir3" ]; then
+    warn "Exemplary directory dir3 has not been created"
+    fail=1
+fi
+if [ ! -d "${rsyncFolder}/dir1/sourcedir" ]; then
+    warn "Exemplary directory dir1/sourcedir has not been created"
+    fail=1
+fi
+if [ ! -f "${rsyncFolder}/filelist.txt" ]; then
+    warn "File-listing filelist.txt has not been created"
+    fail=1
+fi
+
+debug "Ensure sourcedir was populated with dummy files"
+nfiles=`find "${rsyncFolder}/dir1/sourcedir/" -mindepth 1 -maxdepth 1 -type f -name "file*.txt" | wc -l`
+
+if [[ "${nfiles}" -ne 20 ]]; then
+    warn "Unexpected number of dummy files in 'sourcedir' - Expected: 20, Found: ${nfiles}"
+    fail=1
+fi
+
+# If any warning has been issued, the test failed
+if [[ -n "${fail-}" ]]; then
+    error "Running rsync example script did not produce expected output. "
+    exit 1
+fi
+
+passed "Executed rsync example script successfully"
+
+# Cleanup
+debug "Cleaning up tmp folders/files created by rsync_examples.sh"
+rm -rf "${rsyncFolder}/dir1"
+rm -rf "${rsyncFolder}/dir2"
+rm -rf "${rsyncFolder}/dir3"
+rm -f "${rsyncFolder}/filelist.txt"
 
 # ----------------------------------------------------------------------
 # Final cleanup
