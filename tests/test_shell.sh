@@ -106,12 +106,54 @@ if [ $? -ne 0 ]; then
     fail=1
 fi
 
-grep -qf ./tmp.log shell/tmp.txt
+grep -qf "${log}" "${tmpout}"
 if [ $? -ne 0 ]; then
     warn "Log file not populated"
     fail=1
 fi
 
+# If any warning has been issued, the test failed
+if [[ -n "${fail-}" ]]; then
+    error "Running logging example did not produce expected output. "
+    exit 1
+fi
+
 passed "Executed logging example successfully"
+
+# ----------------------------------------------------------------------
+info "Testing queries_run.sh...."
+debug "Seinding 'y' and 'RETURN' key to script"
+(echo "y"
+ echo -ne "\n") | "${shellFolder}/queries_run.sh" > "${tmpout}" 2>&1
+debug "Done"
+
+grep -qw "We're now asking a simple yes/no question..." "${tmpout}"
+if [ $? -ne 0 ]; then
+    warn "Initial prompt not shown"
+    fail=1
+fi
+grep -qw "Obviously..." "${tmpout}"
+if [ $? -ne 0 ]; then
+    warn "First provided answer not accepted"
+    fail=1
+fi
+grep -qw "Press RETURN/ENTER to continue or any other key to abort" "${tmpout}"
+if [ $? -ne 0 ]; then
+    warn "Second prompt not shown"
+    fail=1
+fi
+grep -qw "This message is only displayed if the user pressed the RETURN key before" "${tmpout}"
+if [ $? -ne 0 ]; then
+    warn "Second provided answer not accepted"
+    fail=1
+fi
+
+# If any warning has been issued, the test failed
+if [[ -n "${fail-}" ]]; then
+    error "User query test did not produce expected output. "
+    exit 1
+fi
+
+passed "Executed user query example successfully"
 
 exit 0
