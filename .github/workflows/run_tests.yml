@@ -6,10 +6,12 @@
 #
 # SPDX-License-Identifier: MIT
 #
+
 name: Test Examples
 run-name: ${{ github.actor }} is running tests
-on: [push]
-  branches: [main, dev]
+on:
+  push:
+    branches: [main, dev]
 env:
   GHCI: 1
 jobs:
