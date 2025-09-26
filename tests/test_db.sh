@@ -17,7 +17,7 @@ rootFolder=`dirname ${thisFolder}`
 dbFolder="${rootFolder}/db"
 dbFile="${dbFolder}/dummy.db"
 
-# Clean up remains of previous test runs
+# Clean up remains of potentially failed previous test runs
 rm -f "${dbFile}"
 
 # Test SQLite example
@@ -38,7 +38,7 @@ debug "Done"
 
 debug "Testing auto_vacuum setting"
 autovac=$(echo "PRAGMA auto_vacuum;" | sqlite3 "${dbFile}")
-if [[ "${autovac}" != "2" ]]; then
+if [[ "${autovac}" != "2" ]]; then  # 0 | NONE | 1 | FULL | 2 | INCREMENTAL;
     warn "Auto vacuuming mode not set correctly"
     fail=1
 fi
@@ -59,5 +59,8 @@ if [[ -n "${fail-}" ]]; then
 fi
 
 passed "Database ${dbFile} has been tuned successfully"
+
+# Cleanup
+rm -f "${dbFile}"
 
 exit 0
