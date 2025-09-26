@@ -1,0 +1,44 @@
+#
+# Run tests for shell examples
+#
+# Copyright © 2025 Ernst Strüngmann Institute (ESI) for Neuroscience
+# in Cooperation with Max Planck Society
+#
+# SPDX-License-Identifier: MIT
+#
+
+name: Test Examples
+run-name: ${{ github.actor }} is running tests
+on: [push]
+  branches: [main, dev]
+env:
+  GHCI: 1
+jobs:
+  run-examples:
+    name: Install (${{ matrix.python-version }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ "macos-latest", "ubuntu-latest"]
+        include:
+          - os: macos-latest
+            use_shell : zsh -il {0}
+            prepare_shell: source ~/.zshrc
+          - os: ubuntu-latest
+            use_shell : bash -il {0}
+            prepare_shell: source ~/.bashrc
+    defaults:
+      run:
+        shell: ${{ matrix.use_shell }}
+    steps:
+      - name: Download repository
+        uses: actions/checkout@v4
+      - name: Set up miniforge
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          channels: conda-forge
+          environment-file: ./python/conda_env.yml
+          miniforge-version: latest
+      - name: Running tests for ${{ matrix.os }}
+        run: ./tests/run_tests.sh all
