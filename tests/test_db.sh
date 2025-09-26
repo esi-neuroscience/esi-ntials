@@ -24,7 +24,7 @@ rm -f "${dbFile}"
 info "Testing SQLite database tuning"
 
 debug "Create empty SQLIte database ${dbFile} database and tune it"
-sqlite3 "${dbFile}" < "${dbFolder}/sqlite_tuning.sql"
+sqlite3 "${dbFile}" < "${dbFolder}/sqlite_tuning.sql" > /dev/null
 debug "Done"
 
 # Only test persistent PRAGMAs

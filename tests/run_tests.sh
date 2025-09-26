@@ -108,7 +108,8 @@ for option in "${optArray[@]}"; do
     if [[ "${option}" == "help" ]]; then
         echo "${usage}"
     elif [[ "${option}" == "all" ]]; then
-        pytest "${testargs[@]}"
+        "${thisFolder}/test_db.sh"
+        "${thisFolder}/test_shell.sh"
     elif [[ "${option}" == "db" ]]; then
         "${thisFolder}/test_db.sh"
     elif [[ "${option}" == "python" ]]; then
