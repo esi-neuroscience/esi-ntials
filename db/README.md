@@ -18,3 +18,8 @@ sqlite3 /path/to/you/database.db < sqlite_tuning.sql
 ```
 
 The script is based on a [blog post](https://briandouglas.ie/sqlite-defaults/) by Brian Douglas. 
+Note that most `PRAGMA` statements only affect the current database connection and 
+need to be re-applied whenever the database has been opened. Conversely, some 
+`PRAGMA`s cannot be changed after database creation, so they need to be executed 
+*before* the first actual write to the database (see the comments in 
+[sqlite_tuning.sql](./sqlite_tuning.sql) for more details). 

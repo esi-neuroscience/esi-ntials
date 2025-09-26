@@ -6,8 +6,23 @@
 
 -- SPDX-License-Identifier: MIT
 
+-- ######################################################################
+-- PRAGMA that write directly to the database file; `auto_vacuum` and `page_size`
+-- cannot be changed after creation
+
+-- Set the page size to 8KB for balanced memory usage and performance
+PRAGMA page_size = 8192;
+
 -- Set the journal mode to Write-Ahead Logging for concurrency
 PRAGMA journal_mode = WAL;
+
+-- Enable auto vacuuming and set it to incremental mode for gradual space reclaiming
+PRAGMA auto_vacuum = INCREMENTAL;
+VACUUM;
+
+-- ######################################################################
+-- PRAGMA that only affect current database connections; need to be re-applied
+-- whenever the database has been openend
 
 -- Set synchronous mode to NORMAL for performance and data safety balance
 PRAGMA synchronous = NORMAL;
@@ -21,14 +36,8 @@ PRAGMA cache_size = -20000;
 -- Enable foreign key constraint enforcement
 PRAGMA foreign_keys = ON;
 
--- Enable auto vacuuming and set it to incremental mode for gradual space reclaiming
-PRAGMA auto_vacuum = INCREMENTAL;
-
 -- Store temporary tables and data in memory for better performance
 PRAGMA temp_store = MEMORY;
 
 -- Set the mmap_size to 2GB for faster read/write access using memory-mapped I/O
 PRAGMA mmap_size = 2147483648;
-
--- Set the page size to 8KB for balanced memory usage and performance
-PRAGMA page_size = 8192;

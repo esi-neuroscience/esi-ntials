@@ -28,50 +28,33 @@ sqlite3 "${dbFile}" < "${dbFolder}/sqlite_tuning.sql"
 debug "Done"
 
 # Only test persistent PRAGMAs
+debug "Testing journal_mode"
 jmode=$(echo "PRAGMA journal_mode;" | sqlite3 "${dbFile}")
 if [[ "${jmode}" != "wal" ]]; then
-    error "Journal mode not set correctly"
-fi
-
-# 0 | OFF | 1 | NORMAL | 2 | FULL | 3 | EXTRA;
-syncmode=$(echo "PRAGMA synchronous;" | sqlite3 "${dbFile}")
-echo "syncmode=$syncmode"
-if [[ "${syncmode}" != "2" ]]; then
-    warn "Synchronous mode not set correctly"
+    warn "Journal mode not set correctly"
     fail=1
 fi
-busyto=$(echo "PRAGMA busy_timeout;" | sqlite3 "${dbFile}")
-echo "busyto=$busyto"
-if [[ "${busyto}" != "5000" ]]; then
-    warn "DB lock timeout not set correctly"
-fi
-csize=$(echo "PRAGMA cache_size;" | sqlite3 "${dbFile}")
-if [[ "${csize}" != "-20000" ]]; then
-    warn "Cache size not set correctly"
-fi
-fkeys=$(echo "PRAGMA foreign_keys;" | sqlite3 "${dbFile}")
-if [[ "${fkeys}" != "ON" ]]; then
-    warn "Foreign keys not enabled"
-fi
+debug "Done"
+
+debug "Testing auto_vacuum setting"
 autovac=$(echo "PRAGMA auto_vacuum;" | sqlite3 "${dbFile}")
-if [[ "${autovac}" != "INCREMENTAL" ]]; then
+if [[ "${autovac}" != "2" ]]; then
     warn "Auto vacuuming mode not set correctly"
+    fail=1
 fi
-tstore=$(echo "PRAGMA temp_store;" | sqlite3 "${dbFile}")
-if [[ "${tstore}" != "MEMORY" ]]; then
-    warn "Temporary storage location not set correctly"
-fi
-msize=$(echo "PRAGMA mmap_size;" | sqlite3 "${dbFile}")
-if [[ "${msize}" != "2147483648" ]]; then
-    warn "Memory-mapping size not set correctly"
-fi
+debug "Done"
+
+debug "Testing page_size"
 psize=$(echo "PRAGMA page_size;" | sqlite3 "${dbFile}")
 if [[ "${psize}" != "8192" ]]; then
     warn "Page size not set correctly"
+    fail=1
 fi
+debug "Done"
 
+# If any persistent setting was not applied, the test failed
 if [[ -n "${fail-}" ]]; then
-    error "asdf"
+    error "Database settings of ${dbFile} not applied correctly"
     exit 1
 fi
 
