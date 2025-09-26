@@ -1,0 +1,34 @@
+This is what I got: This is a very long string with     spaces and !@#$%^&*() symbols
+This is what I got: this array contains lots of words
+This is what I got: array
+This is what I got: array contains lots of words
+The length of the array is 6
+This is its first element: this
+This is its last element: words
+This is the whole thing: this array contains lots of words
+The length of the array is 1
+This is its first element: array
+This is its last element: array
+This is the whole thing: array
+The length of the array is 5
+This is its first element: array
+This is its last element: words
+This is the whole thing: array contains lots of words
+Creating temporary text file dummy.txt
+Writing ten lines to it
+Store each line as element of an array
+The length of the array is 10
+This is its first element: Number 1
+This is its last element: Number 10
+This is the whole thing: Number 1 Number 2 Number 3 Number 4 Number 5 Number 6 Number 7 Number 8 Number 9 Number 10
+Looping over the array: 
+>>> Number 1
+>>> Number 2
+>>> Number 3
+>>> Number 4
+>>> Number 5
+>>> Number 6
+>>> Number 7
+>>> Number 8
+>>> Number 9
+>>> Number 10
