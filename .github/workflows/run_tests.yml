@@ -27,7 +27,7 @@ jobs:
             use_shell : zsh -il {0}
             prepare_shell: source ~/.zshrc
           - os: ubuntu-latest
-            use_shell : bash -il {0}
+            use_shell : bash -ile {0}
             prepare_shell: source ~/.bashrc
     defaults:
       run:
