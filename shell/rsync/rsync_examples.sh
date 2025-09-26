@@ -24,7 +24,7 @@ fi
 # Cleaning up remains of potential previous runs
 echo "_________________________________________________________________________"
 echo "Cleaning up potential leftovers from previous runs"
-rm filelist.txt
+rm -f filelist.txt
 rm -rf dir1/
 rm -rf dir2/
 rm -rf dir3/
