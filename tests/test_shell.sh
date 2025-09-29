@@ -194,7 +194,7 @@ passed "Executed user query example successfully"
 info "Testing rsync_examples.sh...."
 rsyncFolder="${shellFolder}/rsync"
 
-/usr/bin/env bash "${rsyncFolder}/rsync_examples.sh" > /dev/null
+bash "${rsyncFolder}/rsync_examples.sh" > /dev/null
 
 debug "Ensure all expected files/directories have been created"
 if [ ! -d "${rsyncFolder}/dir1" ]; then
