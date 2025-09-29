@@ -9,6 +9,9 @@
 # SPDX-License-Identifier: MIT
 #
 
+# Abort on errors
+set -e
+
 # Read parameters from setup file
 thisFolder=`dirname "$(readlink -f "$0")"`
 source "${thisFolder}/log.setup"

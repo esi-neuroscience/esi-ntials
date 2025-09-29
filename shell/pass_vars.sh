@@ -8,6 +8,9 @@
 # SPDX-License-Identifier: MIT
 #
 
+# Abort on errors
+set -e
+
 # Load externally defined functions
 thisFolder=`dirname "$(readlink -f "$0")"`
 source "${thisFolder}/pass.setup"

@@ -126,7 +126,7 @@ rm -f "${log}"
 
 # ----------------------------------------------------------------------
 info "Testing queries_run.sh...."
-debug "Seinding 'y' and 'RETURN' key to script"
+debug "Sending 'y' and 'RETURN' key to script"
 (echo "y"
  echo -ne "\n") | "${shellFolder}/queries_run.sh" > "${tmpout}" 2>&1
 
@@ -165,7 +165,7 @@ dummyfile="./dummy.txt"
 rm -f "${dummyfile}"
 
 debug "Run script and ensure temp output file has been created"
-"${shellFolder}/pass_vars.sh" > "${tmpout}"
+/usr/bin/env bash "${shellFolder}/pass_vars.sh" > "${tmpout}"
 if [ ! -f "${dummyfile}" ]; then
     warn "Array processing example script did not create temporary file"
     fail=1
@@ -194,7 +194,7 @@ rm -f "${dummyfile}"
 info "Testing rsync_examples.sh...."
 rsyncFolder="${shellFolder}/rsync"
 
-"${rsyncFolder}/rsync_examples.sh" > /dev/null
+/usr/bin/env bash "${rsyncFolder}/rsync_examples.sh" > /dev/null
 
 debug "Ensure all expected files/directories have been created"
 if [ ! -d "${rsyncFolder}/dir1" ]; then

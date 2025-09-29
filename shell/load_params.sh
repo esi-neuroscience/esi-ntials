@@ -8,6 +8,9 @@
 # SPDX-License-Identifier: MIT
 #
 
+# Abort on errors
+set -e
+
 # Read parameters from setup file
 # NOTE: use readlink to resolve absolute paths and follow symlinks
 thisFolder=`dirname "$(readlink -f "$0")"`
