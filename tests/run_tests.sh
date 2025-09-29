@@ -110,10 +110,11 @@ for option in "${optArray[@]}"; do
     elif [[ "${option}" == "all" ]]; then
         "${thisFolder}/test_db.sh"
         "${thisFolder}/test_shell.sh"
+        pytest --color=yes --tb=short --verbose "${thisFolder}/test_python.py"
     elif [[ "${option}" == "db" ]]; then
         "${thisFolder}/test_db.sh"
     elif [[ "${option}" == "python" ]]; then
-        pytest "${testargs[@]}" test_python.py
+        pytest --color=yes --tb=short --verbose "${thisFolder}/test_python.py"
     elif [[ "${option}" == "shell" ]]; then
         "${thisFolder}/test_shell.sh"
     fi

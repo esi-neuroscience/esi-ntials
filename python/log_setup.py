@@ -7,13 +7,14 @@
 # SPDX-License-Identifier: MIT
 #
 
+# System packages
 import logging
 from pathlib import Path
-
+from typing import Any
 
 # Globals used to set up logger
 __logname__ = "mycustomlogger"
-__logfile__ = "./my_custom.log"
+__logfile__ = Path("./my_custom.log").resolve()
 
 
 def announce(
@@ -143,6 +144,6 @@ if len(log.handlers) == 0:
     stdoutHandler = logging.StreamHandler()
     stdoutHandler.setFormatter(streamFrmt)
     log.addHandler(stdoutHandler)
-    fileHandler = logging.FileHandler(Path(__logfile__).resolve())
+    fileHandler = logging.FileHandler(__logfile__)
     fileHandler.setFormatter(fileFrmt)
     log.addHandler(fileHandler)
