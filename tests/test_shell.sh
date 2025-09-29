@@ -8,6 +8,9 @@
 # SPDX-License-Identifier: MIT
 #
 
+# Exit right away if a command returns non-zero status.
+set -e
+
 # Read parameters from setup file
 thisFolder=`dirname "$(readlink -f "$0")"`
 source "${thisFolder}/tests.setup"
@@ -63,11 +66,12 @@ info "Testing log_msg.sh...."
 log="./tmp.log"
 rm -f "${log}"
 
-"${shellFolder}/log_msg.sh" > "${tmpout}"
+# Force zero return code to not fail test due to final error-call in log_msh.sh
+"${shellFolder}/log_msg.sh" > "${tmpout}" || true
 
 debug "Ensure that initial debug message was not printed"
-grep -qw "This message is not shown" "${tmpout}"
-if [ $? -eq 0 ]; then
+grep -vqw "This message is not shown" "${tmpout}"
+if [ $? -ne 0 ]; then
     warn "Debug message not hidden"
     fail=1
 fi

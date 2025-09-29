@@ -12,14 +12,13 @@
 import pytest
 import runpy
 import sys
-import os
 from pathlib import Path
 
 # Globally define location of Python examples
 pydir = f"{Path(__file__).parent.parent.resolve()}/python"
 
 # Remove potentially existing log-file generated in previous runs
-os.unlink("./my_custom.log")
+Path("./my_custom.log").unlink(missing_ok=True)
 
 # Local imports
 sys.path.insert(0, pydir)

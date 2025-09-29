@@ -8,6 +8,9 @@
 # SPDX-License-Identifier: MIT
 #
 
+# Exit right away if a command returns non-zero status.
+set -e
+
 # Read parameters from setup file
 thisFolder=`dirname "$(readlink -f "$0")"`
 source "${thisFolder}/tests.setup"
