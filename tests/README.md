@@ -5,6 +5,11 @@ in Cooperation with Max Planck Society
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
-# Coming soon... 
+# Testing Pipeline for Enclosed Examples
 
-Only tested on Linux!
+The scripts collected in this directory are intended to test all exemplary codes
+provided in this repository to ensure all examples can be executed without errors. 
+
+## Running Tests 
+
+
