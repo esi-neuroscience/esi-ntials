@@ -24,14 +24,7 @@ jobs:
         os: [ "macos-latest", "ubuntu-latest"]
         include:
           - os: macos-latest
-            use_shell : zsh -il -o pipefail {0}
-            prepare_shell: source ~/.zshrc
           - os: ubuntu-latest
-            use_shell : bash -eil -o pipefail {0}
-            prepare_shell: source ~/.bashrc
-    defaults:
-      run:
-        shell: ${{ matrix.use_shell }}
     steps:
       - name: Download repository
         uses: actions/checkout@v4
