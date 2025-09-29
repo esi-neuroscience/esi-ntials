@@ -8,6 +8,8 @@
 # SPDX-License-Identifier: MIT
 #
 
+set -e
+
 # Read parameters from setup file
 thisFolder=`dirname "$(readlink -f "$0")"`
 source "${thisFolder}/tests.setup"
