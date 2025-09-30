@@ -165,7 +165,6 @@ dummyfile="./dummy.txt"
 rm -f "${dummyfile}"
 
 debug "Run script and ensure temp output file has been created"
-"${shellFolder}/pass_vars.sh"
 "${shellFolder}/pass_vars.sh" > "${tmpout}"
 if [ ! -f "${dummyfile}" ]; then
     warn "Array processing example script did not create temporary file"
