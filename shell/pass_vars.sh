@@ -63,6 +63,7 @@ echo "Store each line as element of an array"
 if ((BASH_VERSINFO >= 4)); then
     readarray -t newarray < "${txtfile}"               # use `readarray` on modern Linux
 else
+    echo "before ifs"
     IFS=$'\n' read -d '' -r -a newarray < "${txtfile}" # read `read` in old bash (e.g., macOS)
     echo "here"
 fi
