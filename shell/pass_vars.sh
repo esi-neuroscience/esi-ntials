@@ -58,6 +58,8 @@ for i in $(seq 1 10); do
     echo "Number ${i}" >> "${txtfile}"
 done
 
+echo ">>>>>>>>>> $BASH_VERSION"
+
 # Read lines from the file to a bash array
 echo "Store each line as element of an array"
 readarray -t newarray < "${txtfile}"
