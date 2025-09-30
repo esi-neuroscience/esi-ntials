@@ -84,9 +84,11 @@ rsync -avhp --progress `cat filelist.txt` dir3/
 echo ""
 echo "Checking for copied files in target directory"
 if ((BASH_VERSINFO >= 4)); then
-    readarray -t filearr < filelist.txt                # use `readarray` on modern Linux
+    # Use `readarray` on modern Linux with bash 4.x+
+    readarray -t filearr < filelist.txt
 else
-    IFS=$'\n' read -d '' -r -a filearr < filelist.txt  # read `read` in old bash (e.g., macOS)
+    # Use `read` in old bash (e.g., macOS); returns 1 if end-of-file is encountered
+    IFS=$'\n' read -d '' -r -a filearr < filelist.txt || true
 fi
 
 for fullname in "${filearr[@]}"; do

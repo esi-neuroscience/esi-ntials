@@ -61,12 +61,11 @@ done
 # Read lines from the file to a bash array
 echo "Store each line as element of an array"
 if ((BASH_VERSINFO >= 4)); then
-    readarray -t newarray < "${txtfile}"               # use `readarray` on modern Linux
+    # Use `readarray` on modern Linux with bash 4.x+
+    readarray -t newarray < "${txtfile}"
 else
-    echo "before ifs"
-    echo "bash=$BASH_VERSION"
-    IFS=$'\n' read -d '' -r -a newarray < "${txtfile}" # read `read` in old bash (e.g., macOS)
-    echo "here"
+    # Use `read` in old bash (e.g., macOS); returns 1 if end-of-file is encountered
+    IFS=$'\n' read -d '' -r -a newarray < "${txtfile}" || true
 fi
 
 # Use external function to evaluate the array
