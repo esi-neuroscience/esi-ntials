@@ -64,6 +64,7 @@ if ((BASH_VERSINFO >= 4)); then
     readarray -t newarray < "${txtfile}"               # use `readarray` on modern Linux
 else
     IFS=$'\n' read -d '' -r -a newarray < "${txtfile}" # read `read` in old bash (e.g., macOS)
+    echo "here"
 fi
 
 # Use external function to evaluate the array
