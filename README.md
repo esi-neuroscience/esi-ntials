@@ -7,7 +7,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # esi-ntials
 
-[![tests](https://github.com/esi-neuroscience/esi-ntials/actions/workflows/run_tests.yml/badge.svg?branch=main)](https://github.com/esi-neuroscience/esi-ntials/actions/workflows/run_tests.yml)
+[![tests](https://github.com/esi-neuroscience/esi-ntials/actions/workflows/run_tests.yml/badge.svg?branch=main)](https://github.com/esi-neuroscience/esi-ntials/actions/workflows/run_tests.yml)  
 [![REUSE status](https://api.reuse.software/badge/github.com/esi-neuroscience/esi-ntials)](https://api.reuse.software/info/github.com/esi-neuroscience/esi-ntials)
 
 A collection of tools, configs and code snippets that proved to be useful in various situations. 
@@ -15,7 +15,7 @@ A collection of tools, configs and code snippets that proved to be useful in var
 The repository is organized (roughly) by tech stack: 
 
 - [Shell](./shell/): Helpers for working with the Unix shell
-  - [use a setup file](./shell/load_params.sh) collect often used variables and functions in a dedicated file
+  - [use a setup file](./shell/load_params.sh) collect often-used variables and functions in a dedicated file
   - [colored messages/log levels](./shell/log_msg.sh) enable color-coded debug/info/warn/error messages in shell scripts
   - [user queries](./shell/queries_run.sh) use interactive prompts in scripts
   - [string handling](./shell/pass_vars.sh) use arrays to safely process and parse strings
@@ -36,7 +36,7 @@ The repository is organized (roughly) by tech stack:
   - [Git Style Guide](./doc/git_style.md) A suggestion for formatting git commits
   - [Research Project Folder Layout](./doc/dir_layout.md) Exemplary directory structure for a research project
 
-**Suggestions for useful snippets to add? [Let us know!](https://github.com/esi-neuroscience/esi-ntials/issues/new)**
+**Suggestions for snippets to add? [Let us know!](https://github.com/esi-neuroscience/esi-ntials/issues/new)**
 
 ## Getting Started
 
@@ -70,8 +70,9 @@ system. Please refer to the respective official documentation to set up the corr
 components. 
 
 The notable exception to this rule is the provided [Python](./python/) section, 
-which comes with a conda environment file to quickly set up all required packages 
-(including other tools like `sqlite` used in the repository). 
+which comes with a [conda environment file](./python/conda_env.yml) to quickly 
+set up all required packages (including other tools like `sqlite` used in the 
+repository). 
 
 ## Usage
 

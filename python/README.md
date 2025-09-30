@@ -13,7 +13,7 @@ All codes have been tested with modern versions of Python (3.9+).
 ## Setup 
 
 The enclosed conda [environment file](./conda_env.yml) can be used to reproducibly 
-create a conda environment to run examples provided here:
+create a conda environment to run the examples provided here:
 
 ``` shell
 conda env create -f conda_env.yml

@@ -4,10 +4,12 @@
 #
 # Copyright © 2025 Ernst Strüngmann Institute (ESI) for Neuroscience
 # in Cooperation with Max Planck Society
-# Copyright © 2009-present, Homebrew contributors
 #
 # SPDX-License-Identifier: MIT
 #
+
+# Do not use `set -e` here as `user_yesno` might return 1 which would
+# be interpreted as an error
 
 # Read parameters from setup file
 thisFolder=`dirname "$(readlink -f "$0")"`

@@ -14,7 +14,7 @@ that have been proven to be not straight-forward to set up from scratch.
 
 The file [ssh_config](./ssh_config) includes exemplary host-blocks that illustrate 
 how to set up a personal ssh configuration file. The syntax is identical on all 
-operating systems supported by ssh (Windows, macOS, Linux). By default the `ssh` 
+operating systems supported by `ssh` (Windows, macOS, Linux). By default the `ssh` 
 command looks for user settings in a file named `config` inside a hidden `.ssh` 
 folder of your "home" directory, i.e., 
 

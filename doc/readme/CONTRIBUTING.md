@@ -8,7 +8,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 # Contributer's Guide 
 
 This is the place to tell potential contributors of your project what they need 
-to do get started. Depending on the involved tech stack this might be a specific 
+to do to get started. Depending on the involved tech stack this might be a specific 
 script they should execute or virtual environments to set up. 
 
 You probably want to pay extra attention to making it as easy as possible to run 

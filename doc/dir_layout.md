@@ -9,7 +9,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 The following sketch demonstrates a very simple folder structure to store any 
 data associated with a research project. It is intended as a simple and quickly 
-to implement starting point for organizing research data. More comprehensive 
+implementable starting point for organizing research data. More comprehensive 
 layouts are discussed in [1] and [2]. 
 
 ## General Structure 
@@ -23,7 +23,7 @@ You may start with the following basic layout:
     │   ├── Literature
     │   ├── Notes
     │   ├── Publications
-    │   ├── Results
+    │   └── Results
     └── README.md
 
 The `README.md` file in the project root should provide a (short) overview of each 

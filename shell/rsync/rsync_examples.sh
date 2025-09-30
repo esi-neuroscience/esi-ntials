@@ -4,7 +4,6 @@
 #
 # Copyright © 2025 Ernst Strüngmann Institute (ESI) for Neuroscience
 # in Cooperation with Max Planck Society
-# Copyright © 2009-present, Homebrew contributors
 #
 # SPDX-License-Identifier: MIT
 #
