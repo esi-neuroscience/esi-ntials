@@ -13,7 +13,7 @@ set -e
 
 # Load externally defined functions
 thisFolder=`dirname "$(readlink -f "$0")"`
-. "${thisFolder}/pass.setup"
+source "${thisFolder}/pass.setup"
 
 # Name of text file used later
 txtfile="dummy.txt"
@@ -58,11 +58,13 @@ for i in $(seq 1 10); do
     echo "Number ${i}" >> "${txtfile}"
 done
 
-echo ">>>>>>>>>> $BASH_VERSION"
-
 # Read lines from the file to a bash array
 echo "Store each line as element of an array"
-readarray -t newarray < "${txtfile}"
+if ((BASH_VERSINFO >= 4)); then
+    readarray -t newarray < "${txtfile}"               # use `readarray` on modern Linux
+else
+    IFS=$'\n' read -d '' -r -a newarray < "${txtfile}" # read `read` in old bash (e.g., macOS)
+fi
 
 # Use external function to evaluate the array
 process_arrays "${newarray[@]}"

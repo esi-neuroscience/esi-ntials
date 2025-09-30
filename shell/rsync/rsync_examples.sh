@@ -83,7 +83,12 @@ rsync -avhp --progress `cat filelist.txt` dir3/
 # Check that only the files listed in filelist.txt were copied
 echo ""
 echo "Checking for copied files in target directory"
-readarray -t filearr < filelist.txt
+if ((BASH_VERSINFO >= 4)); then
+    readarray -t filearr < filelist.txt                # use `readarray` on modern Linux
+else
+    IFS=$'\n' read -d '' -r -a filearr < filelist.txt  # read `read` in old bash (e.g., macOS)
+fi
+
 for fullname in "${filearr[@]}"; do
     filename="$(basename ${fullname})"
     if [ ! -f "dir3/${filename}" ]; then
