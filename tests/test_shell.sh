@@ -161,7 +161,9 @@ passed "Executed user query example successfully"
 
 # ----------------------------------------------------------------------
 # Only run in bash
-if [[ -n "${BASH_VERSION:-}" ]]; then
+if [[ -z "${BASH_VERSION:-}" ]]; then
+    warn "Array processing script can only be tested in bash"
+else
     info "Testing pass_vars.sh...."
     dummyfile="./dummy.txt"
     rm -f "${dummyfile}"
@@ -191,8 +193,6 @@ if [[ -n "${BASH_VERSION:-}" ]]; then
     # Cleanup
     debug "Cleaning up tmp file created by pass_vars.sh"
     rm -f "${dummyfile}"
-else
-    warn "Array processing script can only be tested in bash"
 fi
 
 # ----------------------------------------------------------------------
