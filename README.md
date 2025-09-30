@@ -8,6 +8,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 # esi-ntials
 
 [![tests](https://github.com/esi-neuroscience/esi-ntials/actions/workflows/run_tests.yml/badge.svg?branch=main)](https://github.com/esi-neuroscience/esi-ntials/actions/workflows/run_tests.yml)
+[![REUSE status](https://api.reuse.software/badge/github.com/esi-neuroscience/esi-ntials)](https://api.reuse.software/info/github.com/esi-neuroscience/esi-ntials)
 
 A collection of tools, configs and code snippets that proved to be useful in various situations. 
 
@@ -35,10 +36,7 @@ The repository is organized (roughly) by tech stack:
   - [Git Style Guide](./doc/git_style.md) A suggestion for formatting git commits
   - [Research Project Folder Layout](./doc/dir_layout.md) Exemplary directory structure for a research project
 
-Todo:
-
-- Include reuse badge
-- write tests
+**Suggestions for useful snippets to add? [Let us know!](https://github.com/esi-neuroscience/esi-ntials/issues/new)**
 
 ## Getting Started
 
