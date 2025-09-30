@@ -11,6 +11,11 @@
 # Abort on errors
 set -e
 
+if [[ -z "${BASH_VERSION:-}" ]]; then
+    echo ">>>>>>>>>>>>>>>>asdf"
+    exit 0
+fi
+
 # Load externally defined functions
 thisFolder=`dirname "$(readlink -f "$0")"`
 source "${thisFolder}/pass.setup"
