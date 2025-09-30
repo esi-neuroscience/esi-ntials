@@ -20,6 +20,6 @@ process_arrays()
     local arr=("$@")
     echo "The length of the array is ${#arr[@]}"
     echo "This is its first element: ${arr[0]}"
-    echo "This is its last element: ${arr[-1]}"
+#    echo "This is its last element: ${arr[-1]}"
     echo "This is the whole thing: ${arr[@]}"
 }
