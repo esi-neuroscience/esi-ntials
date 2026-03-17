@@ -87,3 +87,19 @@ ssh myworkstation
 ```
 
 without having to specify a password. 
+
+## Git Filters
+
+Filters are one of the most powerful yet least known features in git. They permit
+to modify files "in-flight" during checkout and/or commit. Among other things, 
+this functionality is particularly useful for clipping sensitive information from, 
+e.g., config files. In git a filter can be applied to content before it is committed 
+to the repository (a so-called **clean** filter) and/or after it has been checked 
+out (a **smudge** filter). In the following, we focus on *clean* filters to remove
+credentials from files. 
+
+Assume, you interact with a web service that requires authentication via an API 
+key in a specially structured json file, called `settings.json`. The file does not
+only contain the key but also various other important configuration settings, so 
+you want to include it in your git repository - without leaking your private API 
+key to a your public GitHub remote. 
