@@ -73,6 +73,9 @@ while :; do
         shell)
 	        optArray+=("shell")
             ;;
+        config)
+	        optArray+=("config")
+            ;;
         --help)
 	        optArray+=("help")
             ;;
@@ -114,6 +117,7 @@ for option in "${optArray[@]}"; do
     elif [[ "${option}" == "all" ]]; then
         "${thisFolder}/test_db.sh"
         "${thisFolder}/test_shell.sh"
+        "${thisFolder}/test_gitfilters.sh"
         pytest --color=yes --tb=short --verbose "${thisFolder}/test_python.py"
     elif [[ "${option}" == "db" ]]; then
         "${thisFolder}/test_db.sh"
@@ -121,6 +125,8 @@ for option in "${optArray[@]}"; do
         pytest --color=yes --tb=short --verbose "${thisFolder}/test_python.py"
     elif [[ "${option}" == "shell" ]]; then
         "${thisFolder}/test_shell.sh"
+    elif [[ "${option}" == "config" ]]; then
+        "${thisFolder}/test_gitfilters.sh"
     fi
 done
 
