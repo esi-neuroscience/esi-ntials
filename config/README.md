@@ -107,7 +107,7 @@ To set up git for this only requires setting up two git configuration files:
 
 - [.gitconfig](./git_filters/.gitconfig): Definition of the actual filter 
   (a [sed](https://www.gnu.org/software/sed/manual/sed.html) regular expression) 
-- [.gitattributes](./git_filters/.gitattributes) Specifcation which files to apply 
+- [.gitattributes](./git_filters/.gitattributes) Specification of which files to apply 
   what filter(s) to
 
 Copy/Create both files in the root of your git repo (where the `.git` directory is). 
