@@ -87,3 +87,68 @@ ssh myworkstation
 ```
 
 without having to specify a password. 
+
+## Git Filters
+
+Filters are one of the most powerful yet least known features in git. They permit
+to modify files "in-flight" at checkout and/or commit. A filter can be applied to 
+content before it is committed to the repository (a so-called **clean** filter) 
+and/or after it has been checked out (a **smudge** filter). Among other things, 
+a clean filter is particularly useful for clipping sensitive information from, 
+e.g., config files before committing to a repository.  
+
+Assume, you interact with a web service that requires authentication via an API 
+key in a specially structured json file, called [settings.json](./git_filters/settings.json). 
+The file does not only contain the key but also various other important configuration 
+settings, so you want to include it in your git repository - without leaking your 
+private API key to a your public GitHub remote, of course. 
+
+To set up git for this only requires setting up two git configuration files:
+
+- [.gitconfig](./git_filters/.gitconfig): Definition of the actual filter 
+  (a [sed](https://www.gnu.org/software/sed/manual/sed.html) regular expression) 
+- [.gitattributes](./git_filters/.gitattributes) Specification of which files to apply 
+  what filter(s) to
+
+Copy/Create both files in the root of your git repo (where the `.git` directory is). 
+Next, git needs to know about the filter defined in [.gitconfig](./git_filters/.gitconfig): 
+in the root of you git repository, run the following command (verbatim)
+
+```shell
+git config --local include.path ../.gitconfig
+```
+
+Check if the filter has been set up correctly:
+
+```shell
+git config --list --show-origin 
+# the last line should show 
+# file:.git/../.gitconfig filter.apikey.clean=sed -E ... 
+```
+
+The spec file [.gitattributes](./git_filters/.gitattributes) is picked up by git 
+automatically. That's it, your new git filter is ready for action! 
+
+To test out the given exemplary [settings.json](./git_filters/settings.json), 
+create a new git repo and copy all files in the [git_filters](./git_filters)
+directory to it:
+
+``` shell
+cd ~/
+mkdir test-repo
+cd test-repo
+git init 
+git config user.name "Luke Skywalker"
+git config user.email luke.skywalker@rebels.org
+cp -r /path/to/esi-ntials/config/git_filters/. .
+git add .gitattributes .gitconfig 
+git commit -m "initial commit"
+git config --local include.path ../.gitconfig
+git add settings.json
+git commit -m "test commit"
+git cat-file -p HEAD:settings.json # should show "api-key" instead of the "real" key
+cat settings.json # should still contain the "real" key
+```
+
+More (much more!) information about git filters can be found in the 
+[Git Book](https://git-scm.com/book/en/v2/Customizing-Git-Git-Attributes). 

@@ -1,0 +1,10 @@
+#
+# Exemplary filter definition
+#
+# Copyright © 2026 Ernst Strüngmann Institute (ESI) of the Max Planck Society
+#
+# SPDX-License-Identifier: MIT
+#
+
+[filter "apikey"]
+	clean = sed -E 's/^([[:space:]]*\"API_KEY\"[[:space:]]*:[[:space:]]*)\"[^\"]*\"/\\1\"api-key\"/'

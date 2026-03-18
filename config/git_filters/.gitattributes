@@ -1,0 +1,9 @@
+#
+# Exemplary filter spec
+#
+# Copyright © 2026 Ernst Strüngmann Institute (ESI) of the Max Planck Society
+#
+# SPDX-License-Identifier: MIT
+#
+
+settings.json text eol=lf filter=apikey

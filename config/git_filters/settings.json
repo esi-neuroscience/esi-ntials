@@ -1,0 +1,7 @@
+{
+    "FILENAME" : "settings.json",
+    "API_KEY" : "my_super_secret_key",
+    "PORT" : 4711,
+    "IMPORTANT_SETTING_1" : "value",
+    "IMPORTANT_SETTING_2" : "another_value"
+}
