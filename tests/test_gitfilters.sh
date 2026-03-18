@@ -17,23 +17,25 @@ source "${thisFolder}/tests.setup"
 rootFolder=`dirname ${thisFolder}`
 gitexamplefolder="${rootFolder}/config/git_filters"
 
-# Target location for dummy repo
+# Target location for dummy repo (clean up remains of potentially failed previous runs)
 testdir="${HOME}/test-repo"
+rm -rf "${testdir}"
 
 # Create and populate dummy repo
+info "Testing load_params.sh...."
 mkdir "${testdir}"
 cp -r "${gitexamplefolder}/." "${testdir}/"
 
 # Initialize empty git repo and apply + test filter
 pushd "${testdir}" 1>/dev/null
-git init
+git init  &> /dev/null
 git config user.name "Luke Skywalker"
 git config user.email luke.skywalker@rebels.org
 git add .gitattributes .gitconfig
-git commit -m "initial commit"
+git commit -m "initial commit"  &> /dev/null
 git config --local include.path ../.gitconfig
 git add settings.json
-git commit -m "test commit"
+git commit -m "test commit"  &> /dev/null
 git cat-file -p HEAD:settings.json | grep -Fq "api-key" || error "Key has not been filtered!" | exit 1
 cat settings.json  | grep -Fq "my_super_secret_key" || error "Key was removed from original file!" | exit 1
 popd 1>/dev/null
