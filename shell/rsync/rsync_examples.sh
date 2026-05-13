@@ -57,7 +57,7 @@ echo "Running EXAMPLE 1..."
 # NOTE: No traliing slash after `sourcedir1` means: copy folder + contents,
 #       otherwise rsync copies only its contents!
 #
-rsync -avhp --progress dir1/sourcedir dir2/
+rsync -ah --info=progress2 --partial dir1/sourcedir dir2/
 # ===========================================================================
 
 # Check that rsync did what we wanted it to do
@@ -77,7 +77,7 @@ echo "Running EXAMPLE 2..."
 # EXAMPLE 2:
 #              Copy entries listed in a text file to given target
 #
-rsync -avhp --progress `cat filelist.txt` dir3/
+rsync -ah --info=progress2 `cat filelist.txt` dir3/
 # ===========================================================================
 
 # Check that only the files listed in filelist.txt were copied
@@ -112,11 +112,11 @@ echo "Running EXAMPLE 3..."
 echo ""
 echo "To copy from remote to local, use:"
 echo ""
-echo "rsync -avhp --progress user@remote:/full/path/to/dir1/sourcedir dir2/"
+echo "rsync -ah --info=progress2 user@remote:/full/path/to/dir1/sourcedir dir2/"
 echo ""
 echo "To copy from local to remote:"
 echo ""
-echo "rsync -avhp --progress dir1/sourcedir user@remote:/full/path/to/dir2/"
+echo "rsync -ah --info=progress2 dir1/sourcedir user@remote:/full/path/to/dir2/"
 echo ""
 echo "ALL DONE!"
 echo ""
