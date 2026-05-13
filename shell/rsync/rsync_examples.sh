@@ -21,6 +21,17 @@ if [[ "$(pwd)" != "${thisFolder}" ]]; then
     exit 1
 fi
 
+# Adjust rsync parameters: macOS ships 14 year old rsync version...
+OS="$(uname)"
+if [[ "${OS}" == "Darwin" ]]; then
+    rsyncopts=("-avhp" "--progress")
+elif [[ "${OS}" == "Linux" ]]; then
+    rsyncopts=("-ah" "--info=progress2" "--partial")
+else
+    echo "ERROR: Unsupported operating system: ${OS} Exiting"
+    exit 1
+fi
+
 # Cleaning up remains of potential previous runs
 echo "_________________________________________________________________________"
 echo "Cleaning up potential leftovers from previous runs"
@@ -57,7 +68,7 @@ echo "Running EXAMPLE 1..."
 # NOTE: No traliing slash after `sourcedir1` means: copy folder + contents,
 #       otherwise rsync copies only its contents!
 #
-rsync -ah --info=progress2 --partial dir1/sourcedir dir2/
+rsync "${rsyncopts[@]}" dir1/sourcedir dir2/
 # ===========================================================================
 
 # Check that rsync did what we wanted it to do
@@ -77,7 +88,7 @@ echo "Running EXAMPLE 2..."
 # EXAMPLE 2:
 #              Copy entries listed in a text file to given target
 #
-rsync -ah --info=progress2 `cat filelist.txt` dir3/
+rsync "${rsyncopts[@]}" `cat filelist.txt` dir3/
 # ===========================================================================
 
 # Check that only the files listed in filelist.txt were copied
@@ -112,11 +123,11 @@ echo "Running EXAMPLE 3..."
 echo ""
 echo "To copy from remote to local, use:"
 echo ""
-echo "rsync -ah --info=progress2 user@remote:/full/path/to/dir1/sourcedir dir2/"
+echo "rsync ${rsyncopts[@]} user@remote:/full/path/to/dir1/sourcedir dir2/"
 echo ""
 echo "To copy from local to remote:"
 echo ""
-echo "rsync -ah --info=progress2 dir1/sourcedir user@remote:/full/path/to/dir2/"
+echo "rsync ${rsyncopts[@]} dir1/sourcedir user@remote:/full/path/to/dir2/"
 echo ""
 echo "ALL DONE!"
 echo ""
